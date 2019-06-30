@@ -14,6 +14,7 @@ namespace BowlingBall.Tests
         {
             game = null;
         }
+        //[Fact] attribute use to define test method take no input
         [Fact]
         public void TestSpare()
         {
@@ -22,7 +23,6 @@ namespace BowlingBall.Tests
             game.Roll(3);
             RollTimes(0, 17);
             Assert.Equal(16, game.GetScore());
-
         }
         [Fact]
         public void TestStrike()
@@ -66,16 +66,6 @@ namespace BowlingBall.Tests
         {
             RollTimes(5, 21);
             Assert.Equal(150, game.GetScore());
-
-        }
-        [Fact]
-        public void TestGetScore()
-        {
-            game.Roll(2);
-            game.Roll(3);
-            RollTimes(1,19);
-            Assert.Equal(23, game.GetScore());
-
         }
         [Fact]
         public void TestAll()
