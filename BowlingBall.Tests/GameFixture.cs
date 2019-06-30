@@ -14,22 +14,6 @@ namespace BowlingBall.Tests
         {
             game = null;
         }
-
-        [Fact]
-        public void TestRoll()
-        {
-            game.Roll(10);
-            RollTimes(1, 20);
-        }
-        [Fact]
-        public void TestGetScore()
-        {
-            game.Roll(2);
-            game.Roll(3);
-            RollTimes(1,19);
-            Assert.Equal(23, game.GetScore());
-
-        }
         [Fact]
         public void TestSpare()
         {
@@ -48,6 +32,50 @@ namespace BowlingBall.Tests
             game.Roll(4);
             RollTimes(0, 16);
             Assert.Equal(28, game.GetScore());
+        }
+
+        [Fact]
+        public void TestLastStrike()
+        {
+            RollTimes(0, 18);
+            game.Roll(10);
+            game.Roll(5);
+            game.Roll(4);
+            Assert.Equal(19, game.GetScore());
+
+        }
+        [Fact]
+        public void TestLastSpare()
+        {
+            RollTimes(0, 18);
+            game.Roll(5);
+            game.Roll(5);
+            game.Roll(4);
+            Assert.Equal(14, game.GetScore());
+
+        }
+        [Fact]
+        public void TestAllStrike()
+        {
+            RollTimes(10, 21); 
+            Assert.Equal(300, game.GetScore());
+
+        }
+        [Fact]
+        public void TestAllSpare()
+        {
+            RollTimes(5, 21);
+            Assert.Equal(150, game.GetScore());
+
+        }
+        [Fact]
+        public void TestGetScore()
+        {
+            game.Roll(2);
+            game.Roll(3);
+            RollTimes(1,19);
+            Assert.Equal(23, game.GetScore());
+
         }
         [Fact]
         public void TestAll()

@@ -4,13 +4,13 @@ namespace BowlingBall
 {
     public class Game
     {
-        private int[] Rolls = new int[21];
-        private int Index = 0;
+        private int[] roll = new int[21];
+        private int index = 0;
         public void Roll(int pins)
         {
-            if (Index < 21)
+            if (index < 21)
             {
-                Rolls[Index++] = pins;
+                roll[index++] = pins;
             } 
            // throw new NotImplementedException();
         }
@@ -44,30 +44,30 @@ namespace BowlingBall
 
         private int Score(int score, int i)
         {
-            score += Rolls[i] + Rolls[i + 1];
+            score += roll[i] + roll[i + 1];
             return score;
         }
 
         private int SpareScore(int score, int i)
         {
-            score += Rolls[i] + Rolls[i + 1] + Rolls[i + 2];
+            score += roll[i] + roll[i + 1] + roll[i + 2];
             return score;
         }
 
         private int StrikeScore(int score, int i)
         {
-            score += Rolls[i] + Rolls[i + 1] + Rolls[i + 2];
+            score += roll[i] + roll[i + 1] + roll[i + 2];
             return score;
         }
 
         private bool IsSpare(int i)
         {
-            return Rolls[i] + Rolls[i + 1] == 10;
+            return roll[i] + roll[i + 1] == 10;
         }
 
         private bool IsStrike(int i)
         {
-            return Rolls[i] == 10;
+            return roll[i] == 10;
         }
     }
 }
